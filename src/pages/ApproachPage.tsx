@@ -2,6 +2,7 @@ import React from 'react';
 import { Language, PageId } from '../types';
 import { translations } from '../translations';
 import { ArrowUpRight, CheckCircle2 } from 'lucide-react';
+import { technicalPlansImage } from '../assets/images';
 
 interface ApproachPageProps {
   currentLang: Language;
@@ -55,7 +56,7 @@ export const ApproachPage: React.FC<ApproachPageProps> = ({ currentLang, setCurr
               {/* Documentary Image */}
               <div className="pt-4 border border-neutral-300 bg-white p-2 shadow-sm">
                 <img
-                  src="/src/assets/images/technical_investigation_plans_1794474764628.jpg"
+                  src={technicalPlansImage}
                   alt={t.approach.imageCaption1}
                   className="w-full h-auto object-cover grayscale contrast-105"
                   referrerPolicy="no-referrer"

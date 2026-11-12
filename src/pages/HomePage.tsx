@@ -2,6 +2,7 @@ import React from 'react';
 import { Language, PageId } from '../types';
 import { translations } from '../translations';
 import { ArrowRight, ArrowUpRight, ShieldCheck, Scale, Compass, CheckCircle2 } from 'lucide-react';
+import { heroImage, technicalPlansImage } from '../assets/images';
 
 interface HomePageProps {
   currentLang: Language;
@@ -91,7 +92,7 @@ export const HomePage: React.FC<HomePageProps> = ({
             <div className="lg:col-span-5">
               <div className="relative border border-neutral-300/80 bg-neutral-900 shadow-xl overflow-hidden aspect-[16/10] sm:aspect-[4/3] lg:aspect-[16/13]">
                 <img
-                  src="/src/assets/images/hero_infrastructure_architecture_1794474763071.jpg"
+                  src={heroImage}
                   alt={t.hero.imageCaption}
                   className="w-full h-full object-cover grayscale contrast-110 hover:scale-102 transition-transform duration-700 ease-out"
                   referrerPolicy="no-referrer"
@@ -314,7 +315,7 @@ export const HomePage: React.FC<HomePageProps> = ({
               {/* Documentary Technical Plans Image */}
               <div className="pt-4 border border-neutral-300 bg-white p-2 shadow-sm">
                 <img
-                  src="/src/assets/images/technical_investigation_plans_1794474764628.jpg"
+                  src={technicalPlansImage}
                   alt={t.approach.imageCaption1}
                   className="w-full h-auto object-cover grayscale contrast-105"
                   referrerPolicy="no-referrer"

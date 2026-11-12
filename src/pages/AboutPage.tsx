@@ -2,6 +2,7 @@ import React from 'react';
 import { Language, PageId } from '../types';
 import { translations } from '../translations';
 import { ArrowUpRight, CheckCircle } from 'lucide-react';
+import { structuralImage } from '../assets/images';
 
 interface AboutPageProps {
   currentLang: Language;
@@ -77,7 +78,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ currentLang, setCurrentPag
             <div className="lg:col-span-5 space-y-6">
               <div className="border border-neutral-300 bg-neutral-900 overflow-hidden shadow-lg aspect-[4/5]">
                 <img
-                  src="/src/assets/images/delay_analysis_structural_1794474764641.jpg"
+                  src={structuralImage}
                   alt={t.about.impartialityTitle}
                   className="w-full h-full object-cover grayscale contrast-110"
                   referrerPolicy="no-referrer"
