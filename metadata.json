@@ -1,0 +1,6 @@
+{
+  "name": "FidePath Expert Services",
+  "description": "Independent Construction Delay Analysis & Expert Services. Providing clear, reliable, and evidence-based analysis for construction disputes, EOT, and disruption claims.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
