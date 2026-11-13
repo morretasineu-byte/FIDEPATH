@@ -284,7 +284,7 @@ export interface Translations {
 export const translations: Record<Language, Translations> = {
   en: {
     common: {
-      tagline: 'Independent · Reliable · Expert',
+      tagline: 'Independent · Objective · Expert',
       location: 'Palma, Balearic Islands, Spain',
       allRightsReserved: 'All rights reserved.',
       categoryPrefix: 'Category',
@@ -304,7 +304,7 @@ export const translations: Record<Language, Translations> = {
       closeMenu: 'Close navigation menu'
     },
     hero: {
-      badge: 'Independent · Reliable · Expert',
+      badge: 'Independent · Objective · Expert',
       title: 'Independent Construction Delay Analysis & Expert Services',
       subtitle: 'Clear, independent and reliable analysis of construction delays, disruption and project disputes. We turn complex project information into understandable, evidence-based conclusions.',
       ctaPrimary: 'Discuss Your Project',
@@ -330,7 +330,7 @@ export const translations: Record<Language, Translations> = {
           desc: 'An objective, impartial perspective grounded strictly in contemporaneous project records and empirical facts.'
         },
         reliable: {
-          title: 'Reliable',
+          title: 'Objective',
           desc: 'Methodologically sound technical assessments that withstand scrutiny in commercial negotiations and disputes.'
         },
         expert: {
@@ -861,7 +861,7 @@ export const translations: Record<Language, Translations> = {
   },
   es: {
     common: {
-      tagline: 'Independiente · Fiable · Experto',
+      tagline: 'Independiente · Objetivo · Experto',
       location: 'Palma, Islas Baleares, España',
       allRightsReserved: 'Todos los derechos reservados.',
       categoryPrefix: 'Categoría',
@@ -881,7 +881,7 @@ export const translations: Record<Language, Translations> = {
       closeMenu: 'Cerrar menú de navegación'
     },
     hero: {
-      badge: 'Independiente · Fiable · Experto',
+      badge: 'Independiente · Objetivo · Experto',
       title: 'Análisis Independiente de Retrasos en Construcción y Servicios Periciales',
       subtitle: 'Análisis claro, independiente y fiable de retrasos, disrupciones y controversias en proyectos de construcción. Transformamos información compleja en conclusiones comprensibles y fundamentadas.',
       ctaPrimary: 'Tratar su Proyecto',
@@ -907,7 +907,7 @@ export const translations: Record<Language, Translations> = {
           desc: 'Una perspectiva objetiva e imparcial, fundamentada estrictamente en los registros contemporáneos del proyecto y en los hechos probados.'
         },
         reliable: {
-          title: 'Fiabilidad',
+          title: 'Objetividad',
           desc: 'Evaluaciones técnicas metodológicamente sólidas que resisten el escrutinio en negociaciones comerciales y litigios.'
         },
         expert: {
@@ -1438,7 +1438,7 @@ export const translations: Record<Language, Translations> = {
   },
   ca: {
     common: {
-      tagline: 'Independent · Fiable · Expert',
+      tagline: 'Independent · Objectiu · Expert',
       location: 'Palma, Illes Balears, Espanya',
       allRightsReserved: 'Tots els drets reservats.',
       categoryPrefix: 'Categoria',
@@ -1458,7 +1458,7 @@ export const translations: Record<Language, Translations> = {
       closeMenu: 'Tancar menú de navegació'
     },
     hero: {
-      badge: 'Independent · Fiable · Expert',
+      badge: 'Independent · Objectiu · Expert',
       title: 'Anàlisi Independent de Retards en Construcció i Serveis Pericials',
       subtitle: 'Anàlisi clara, independent i fiable de retards, disrupcions i controvèrsies en projectes de construcció. Transformem informació complexa en conclusions comprensibles i fonamentades.',
       ctaPrimary: 'Analitzar el Seu Projecte',
@@ -1484,7 +1484,7 @@ export const translations: Record<Language, Translations> = {
           desc: 'Una perspectiva objectiva i imparcial, fonamentada estrictament en els registres contemporanis del projecte i en els fets provats.'
         },
         reliable: {
-          title: 'Fiabilitat',
+          title: 'Objectivitat',
           desc: 'Avaluacions tècniques metodològicament sòlides que resisteixen l\'escrutini en negociacions comercials i litigis.'
         },
         expert: {

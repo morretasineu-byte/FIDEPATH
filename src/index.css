@@ -3,6 +3,14 @@
 @theme {
   --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  --color-fp-white: #FFFFFF;
+  --color-fp-mist: #F4F5F5;
+  --color-fp-stone: #E8EAEB;
+  --color-fp-silver: #C8CCCE;
+  --color-fp-slate: #92999D;
+  --color-fp-anthracite: #30363A;
+  --color-fp-charcoal: #202326;
 }
 
 @layer base {
@@ -10,6 +18,8 @@
     font-family: var(--font-sans);
     scroll-behavior: smooth;
     color-scheme: light;
+    color: #202326;
+    background-color: #FFFFFF;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -19,6 +29,6 @@
 .bg-grid-subtle {
   background-size: 32px 32px;
   background-image: 
-    linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+    linear-gradient(to right, rgba(48, 54, 58, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(48, 54, 58, 0.04) 1px, transparent 1px);
 }

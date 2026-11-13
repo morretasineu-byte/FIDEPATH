@@ -37,29 +37,29 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
   };
 
   return (
-    <div className="w-full bg-white text-neutral-900">
+    <div className="w-full bg-fp-white text-fp-charcoal">
       
       {/* Page Header */}
-      <section className="border-b border-neutral-200 bg-neutral-50/50 py-16 lg:py-20">
+      <section className="border-b border-fp-stone bg-fp-mist py-16 lg:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
-          <div className="text-xs font-mono font-semibold uppercase tracking-widest text-neutral-500">
+          <div className="text-xs font-mono font-semibold uppercase tracking-widest text-fp-anthracite/75">
             {t.services.badge}
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-950 tracking-tight text-balance">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-fp-anthracite tracking-tight text-balance">
             {t.services.sectionTitle}
           </h1>
-          <p className="text-base sm:text-lg text-neutral-600 max-w-2xl leading-relaxed">
+          <p className="text-base sm:text-lg text-fp-charcoal/85 max-w-2xl leading-relaxed">
             {t.services.sectionSubtitle}
           </p>
         </div>
       </section>
 
       {/* Services Interactive Deep-Dive View */}
-      <section className="py-16 lg:py-24 border-b border-neutral-200">
+      <section className="py-16 lg:py-24 bg-fp-white border-b border-fp-stone">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Service Selector Tabs */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 pb-12 border-b border-neutral-200">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 pb-12 border-b border-fp-stone">
             {t.services.items.map((service) => {
               const isSelected = service.id === activeTab;
               return (
@@ -68,11 +68,11 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
                   onClick={() => setActiveTab(service.id)}
                   className={`p-4 text-left border transition-all text-sm flex flex-col justify-between h-full ${
                     isSelected
-                      ? 'border-neutral-950 bg-neutral-950 text-white shadow-sm'
-                      : 'border-neutral-200 bg-white text-neutral-700 hover:border-neutral-400'
+                      ? 'border-fp-anthracite bg-fp-anthracite text-fp-white shadow-sm'
+                      : 'border-fp-stone bg-fp-mist text-fp-anthracite hover:bg-fp-stone hover:border-fp-silver'
                   }`}
                 >
-                  <div className="font-mono text-xs opacity-60 mb-2">
+                  <div className={`font-mono text-xs mb-2 ${isSelected ? 'text-fp-silver' : 'text-fp-anthracite/65'}`}>
                     {service.number}
                   </div>
                   <div className="font-bold tracking-tight leading-snug">
@@ -90,27 +90,27 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
             <div className="lg:col-span-7 space-y-8">
               
               <div className="space-y-3">
-                <div className="text-xs font-mono font-semibold text-neutral-500">
+                <div className="text-xs font-mono font-semibold text-fp-anthracite/75">
                   {t.common.servicePrefix} {activeService.number}
                 </div>
-                <h2 className="text-2xl sm:text-3xl font-bold text-neutral-950 tracking-tight">
+                <h2 className="text-2xl sm:text-3xl font-bold text-fp-anthracite tracking-tight">
                   {activeService.title}
                 </h2>
-                <p className="text-base sm:text-lg text-neutral-700 leading-relaxed">
+                <p className="text-base sm:text-lg text-fp-charcoal/90 leading-relaxed">
                   {activeService.fullDesc}
                 </p>
               </div>
 
               {/* Problems Addressed */}
-              <div className="space-y-4 pt-4 border-t border-neutral-200">
-                <h3 className="text-sm font-mono font-semibold uppercase tracking-wider text-neutral-900 flex items-center gap-2">
-                  <AlertCircle className="w-4 h-4 text-neutral-600" />
+              <div className="space-y-4 pt-4 border-t border-fp-stone">
+                <h3 className="text-sm font-mono font-semibold uppercase tracking-wider text-fp-anthracite flex items-center gap-2">
+                  <AlertCircle className="w-4 h-4 text-fp-anthracite/75" />
                   <span>{t.services.problemsAddressedTitle}</span>
                 </h3>
                 <ul className="space-y-2.5">
                   {activeService.problemsAddressed.map((prob, i) => (
-                    <li key={i} className="flex items-start gap-3 text-sm text-neutral-700">
-                      <span className="w-1.5 h-1.5 rounded-full bg-neutral-900 mt-2 shrink-0" />
+                    <li key={i} className="flex items-start gap-3 text-sm text-fp-charcoal/90">
+                      <span className="w-1.5 h-1.5 rounded-full bg-fp-anthracite mt-2 shrink-0" />
                       <span>{prob}</span>
                     </li>
                   ))}
@@ -118,15 +118,15 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
               </div>
 
               {/* Analysis Included */}
-              <div className="space-y-4 pt-4 border-t border-neutral-200">
-                <h3 className="text-sm font-mono font-semibold uppercase tracking-wider text-neutral-900 flex items-center gap-2">
-                  <FileCheck className="w-4 h-4 text-neutral-600" />
+              <div className="space-y-4 pt-4 border-t border-fp-stone">
+                <h3 className="text-sm font-mono font-semibold uppercase tracking-wider text-fp-anthracite flex items-center gap-2">
+                  <FileCheck className="w-4 h-4 text-fp-anthracite/75" />
                   <span>{t.services.analysisIncludedTitle}</span>
                 </h3>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-neutral-700">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-fp-charcoal/90">
                   {activeService.analysisIncluded.map((item, i) => (
-                    <div key={i} className="p-3 border border-neutral-200 bg-neutral-50/50 flex items-start gap-2.5">
-                      <Check className="w-4 h-4 text-neutral-900 shrink-0 mt-0.5" />
+                    <div key={i} className="p-3 border border-fp-stone bg-fp-mist flex items-start gap-2.5">
+                      <Check className="w-4 h-4 text-fp-anthracite shrink-0 mt-0.5" />
                       <span className="text-xs leading-relaxed">{item}</span>
                     </div>
                   ))}
@@ -138,25 +138,25 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
             {/* Right Column: Client Value Box & CTA */}
             <div className="lg:col-span-5 space-y-6">
               
-              <div className="p-8 border border-neutral-300 bg-neutral-50 space-y-6">
+              <div className="p-8 border border-fp-silver bg-fp-stone space-y-6">
                 <div className="space-y-2">
-                  <div className="text-xs font-mono font-semibold uppercase tracking-wider text-neutral-500">
+                  <div className="text-xs font-mono font-semibold uppercase tracking-wider text-fp-anthracite/75">
                     {t.services.valueBoxTitle}
                   </div>
-                  <h3 className="text-lg font-bold text-neutral-950">
+                  <h3 className="text-lg font-bold text-fp-anthracite">
                     {t.services.valueBoxHeading}
                   </h3>
                 </div>
 
-                <p className="text-sm text-neutral-700 leading-relaxed">
+                <p className="text-sm text-fp-charcoal/90 leading-relaxed">
                   {activeService.clientValue}
                 </p>
 
-                <div className="pt-4 border-t border-neutral-200 space-y-3">
-                  <div className="text-xs font-mono text-neutral-500 uppercase tracking-wide">
+                <div className="pt-4 border-t border-fp-silver space-y-3">
+                  <div className="text-xs font-mono text-fp-anthracite/75 uppercase tracking-wide">
                     {t.services.recordsTitle}
                   </div>
-                  <div className="text-xs text-neutral-600 space-y-1.5">
+                  <div className="text-xs text-fp-charcoal/85 space-y-1.5">
                     {t.services.typicalRecords.map((rec, i) => (
                       <div key={i}>• {rec}</div>
                     ))}
@@ -165,15 +165,15 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
 
                 <button
                   onClick={() => handleDiscussService(activeService.title)}
-                  className="w-full flex items-center justify-center gap-2 px-6 py-3.5 text-xs font-semibold tracking-wider uppercase text-white bg-neutral-950 hover:bg-neutral-800 transition-colors shadow-sm"
+                  className="w-full flex items-center justify-center gap-2 px-6 py-3.5 text-xs font-semibold tracking-wider uppercase text-fp-white bg-fp-anthracite hover:bg-fp-charcoal transition-colors shadow-sm"
                 >
                   <span>{t.services.discussButtonPrefix} {activeService.title}</span>
                   <ArrowUpRight className="w-4 h-4" />
                 </button>
               </div>
 
-              <div className="p-6 border border-neutral-200 text-xs text-neutral-600 space-y-1 font-mono">
-                <div className="font-semibold text-neutral-900">{t.services.directInquiriesTitle}</div>
+              <div className="p-6 border border-fp-stone bg-fp-mist text-xs text-fp-charcoal/85 space-y-1 font-mono">
+                <div className="font-semibold text-fp-anthracite">{t.services.directInquiriesTitle}</div>
                 <div>joan.perello@fidepath.com</div>
                 <div>+34 615 847 893</div>
               </div>
@@ -186,17 +186,17 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
       </section>
 
       {/* Target Audience Section */}
-      <section className="py-20 lg:py-24 bg-neutral-50/50 border-b border-neutral-200">
+      <section className="py-20 lg:py-24 bg-fp-mist border-b border-fp-stone">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="max-w-3xl mb-12 space-y-3">
-            <div className="text-xs font-mono font-semibold uppercase tracking-wider text-neutral-500">
+            <div className="text-xs font-mono font-semibold uppercase tracking-wider text-fp-anthracite/75">
               {t.services.targetAudienceBadge}
             </div>
-            <h2 className="text-2xl sm:text-3xl font-bold text-neutral-950 tracking-tight">
+            <h2 className="text-2xl sm:text-3xl font-bold text-fp-anthracite tracking-tight">
               {t.services.targetAudienceTitle}
             </h2>
-            <p className="text-neutral-600 text-base">
+            <p className="text-fp-charcoal/80 text-base">
               {t.services.targetAudienceDesc}
             </p>
           </div>
@@ -205,17 +205,17 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
             {t.services.targetAudiences.map((audience, idx) => (
               <div
                 key={idx}
-                className="p-6 border border-neutral-200 bg-white space-y-3 flex flex-col justify-between hover:border-neutral-400 transition-colors"
+                className="p-6 border border-fp-stone bg-fp-white space-y-3 flex flex-col justify-between hover:border-fp-silver transition-colors"
               >
                 <div className="space-y-2">
-                  <div className="text-xs font-mono text-neutral-400">
+                  <div className="text-xs font-mono text-fp-anthracite/65">
                     {t.common.groupPrefix} 0{idx + 1}
                   </div>
-                  <h3 className="text-base font-bold text-neutral-950">
+                  <h3 className="text-base font-bold text-fp-anthracite">
                     {audience}
                   </h3>
                 </div>
-                <div className="pt-2 text-xs text-neutral-500 font-mono">
+                <div className="pt-2 text-xs text-fp-anthracite/75 font-mono">
                   {t.services.targetAudienceFooter}
                 </div>
               </div>
@@ -226,12 +226,12 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
       </section>
 
       {/* Bottom CTA */}
-      <section className="py-16 bg-neutral-950 text-white">
+      <section className="py-16 bg-fp-anthracite text-fp-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
-          <h3 className="text-2xl sm:text-3xl font-bold tracking-tight">
+          <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-fp-white">
             {t.services.ctaBox.title}
           </h3>
-          <p className="text-neutral-400 max-w-2xl mx-auto text-sm leading-relaxed">
+          <p className="text-fp-stone/90 max-w-2xl mx-auto text-sm leading-relaxed">
             {t.services.ctaBox.desc}
           </p>
           <div className="pt-2">
@@ -240,7 +240,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
                 setCurrentPage('contact');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
-              className="inline-flex items-center gap-2 px-8 py-3.5 text-xs font-semibold tracking-wider uppercase text-neutral-950 bg-white hover:bg-neutral-200 transition-colors"
+              className="inline-flex items-center gap-2 px-8 py-3.5 text-xs font-semibold tracking-wider uppercase text-fp-charcoal bg-fp-white hover:bg-fp-stone transition-colors"
             >
               <span>{t.services.ctaBox.button}</span>
               <ArrowUpRight className="w-4 h-4" />
