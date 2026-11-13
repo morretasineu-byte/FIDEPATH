@@ -1,4 +1,5 @@
 export const LINKEDIN_URL = 'https://www.linkedin.com/in/joanperello1985';
+export const LEGAL_URL = 'https://fidepathlegal-nine.vercel.app';
 export const YEARS_EXPERIENCE = 12;
 export const FOUNDED = 'January 2026';
 

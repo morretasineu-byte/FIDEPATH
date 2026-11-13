@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Language, PageId } from '../types';
 import { translations } from '../translations';
-import { getLegalRoute, LegalPageId } from '../utils/routes';
+import { LEGAL_URL } from '../config';
+import { LegalPageId } from '../utils/routes';
 
 interface LegalPageProps {
   initialTab?: LegalPageId;
@@ -20,11 +21,6 @@ export const LegalPage: React.FC<LegalPageProps> = ({
   useEffect(() => {
     setActiveTab(initialTab);
   }, [initialTab]);
-
-  const handleTabChange = (tab: LegalPageId) => {
-    setActiveTab(tab);
-    setCurrentPage(tab);
-  };
 
   return (
     <div className="w-full bg-fp-white text-fp-charcoal py-16 lg:py-24">
@@ -50,11 +46,9 @@ export const LegalPage: React.FC<LegalPageProps> = ({
         {/* Tab Controls */}
         <div className="flex flex-wrap items-center gap-2 p-1 bg-fp-stone border border-fp-silver">
           <a
-            href={getLegalRoute(currentLang, 'legal')}
-            onClick={(e) => {
-              e.preventDefault();
-              handleTabChange('legal');
-            }}
+            href={LEGAL_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             className={`px-4 py-2 text-xs font-semibold uppercase tracking-wider transition-colors ${
               activeTab === 'legal'
                 ? 'bg-fp-white text-fp-anthracite shadow-sm'
@@ -64,11 +58,9 @@ export const LegalPage: React.FC<LegalPageProps> = ({
             {t.footer.legalNotice}
           </a>
           <a
-            href={getLegalRoute(currentLang, 'privacy')}
-            onClick={(e) => {
-              e.preventDefault();
-              handleTabChange('privacy');
-            }}
+            href={LEGAL_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             className={`px-4 py-2 text-xs font-semibold uppercase tracking-wider transition-colors ${
               activeTab === 'privacy'
                 ? 'bg-fp-white text-fp-anthracite shadow-sm'
@@ -78,11 +70,9 @@ export const LegalPage: React.FC<LegalPageProps> = ({
             {t.footer.privacyPolicy}
           </a>
           <a
-            href={getLegalRoute(currentLang, 'cookies')}
-            onClick={(e) => {
-              e.preventDefault();
-              handleTabChange('cookies');
-            }}
+            href={LEGAL_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             className={`px-4 py-2 text-xs font-semibold uppercase tracking-wider transition-colors ${
               activeTab === 'cookies'
                 ? 'bg-fp-white text-fp-anthracite shadow-sm'

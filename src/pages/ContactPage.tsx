@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Language, PageId, AssistanceType, ContactFormData } from '../types';
 import { translations } from '../translations';
-import { LINKEDIN_URL } from '../config';
+import { LINKEDIN_URL, LEGAL_URL } from '../config';
 import { Mail, Phone, MapPin, CheckCircle2, AlertCircle, ArrowUpRight, Loader2 } from 'lucide-react';
 
 interface ContactPageProps {
@@ -549,16 +549,14 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                         />
                         <span>
                           {t.contact.form.privacyText}{' '}
-                          <button
-                            type="button"
-                            onClick={() => {
-                              setCurrentPage('privacy');
-                              window.scrollTo({ top: 0, behavior: 'smooth' });
-                            }}
+                          <a
+                            href={LEGAL_URL}
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="underline text-fp-anthracite font-medium hover:text-fp-charcoal"
                           >
                             {t.contact.form.privacyLink}
-                          </button>
+                          </a>
                           .
                         </span>
                       </label>

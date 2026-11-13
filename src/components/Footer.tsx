@@ -1,9 +1,8 @@
 import React from 'react';
 import { Language, PageId } from '../types';
 import { translations } from '../translations';
-import { LINKEDIN_URL } from '../config';
+import { LINKEDIN_URL, LEGAL_URL } from '../config';
 import { Mail, Phone, MapPin, ArrowUpRight } from 'lucide-react';
-import { getLegalRoute } from '../utils/routes';
 
 interface FooterProps {
   setCurrentPage: (page: PageId) => void;
@@ -176,33 +175,27 @@ export const Footer: React.FC<FooterProps> = ({
           {/* Legal Links */}
           <div className="flex flex-wrap items-center justify-center gap-4 text-xs">
             <a
-              href={getLegalRoute(currentLang, 'legal')}
-              onClick={(e) => {
-                e.preventDefault();
-                handleNav('legal');
-              }}
+              href={LEGAL_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="hover:text-fp-stone transition-colors"
             >
               {t.footer.legalNotice}
             </a>
             <span className="text-fp-anthracite">·</span>
             <a
-              href={getLegalRoute(currentLang, 'privacy')}
-              onClick={(e) => {
-                e.preventDefault();
-                handleNav('privacy');
-              }}
+              href={LEGAL_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="hover:text-fp-stone transition-colors"
             >
               {t.footer.privacyPolicy}
             </a>
             <span className="text-fp-anthracite">·</span>
             <a
-              href={getLegalRoute(currentLang, 'cookies')}
-              onClick={(e) => {
-                e.preventDefault();
-                handleNav('cookies');
-              }}
+              href={LEGAL_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="hover:text-fp-stone transition-colors"
             >
               {t.footer.cookiePolicy}
