@@ -5,12 +5,13 @@
   --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
   --color-fp-white: #FFFFFF;
-  --color-fp-mist: #F4F5F5;
-  --color-fp-stone: #E8EAEB;
-  --color-fp-silver: #C8CCCE;
-  --color-fp-slate: #92999D;
-  --color-fp-anthracite: #30363A;
-  --color-fp-charcoal: #202326;
+  --color-fp-cream: #F3F0E9;
+  --color-fp-sand-light: #EAE4D8;
+  --color-fp-sand: #D6C5AA;
+  --color-fp-tan: #B49A78;
+  --color-fp-slate: #34434B;
+  --color-fp-petrol: #183747;
+  --color-fp-petrol-deep: #112834;
 }
 
 @layer base {
@@ -18,8 +19,8 @@
     font-family: var(--font-sans);
     scroll-behavior: smooth;
     color-scheme: light;
-    color: #202326;
-    background-color: #FFFFFF;
+    color: #34434B;
+    background-color: #F3F0E9;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }

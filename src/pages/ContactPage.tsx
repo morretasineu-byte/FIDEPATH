@@ -159,91 +159,91 @@ export const ContactPage: React.FC<ContactPageProps> = ({
   };
 
   return (
-    <div className="w-full bg-fp-white text-fp-charcoal">
+    <div className="w-full bg-fp-petrol text-fp-cream">
       
       {/* Page Header */}
-      <section className="border-b border-fp-stone bg-fp-mist py-16 lg:py-20">
+      <section className="border-b border-fp-tan/35 bg-fp-petrol-deep py-16 lg:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
-          <div className="text-xs font-mono font-semibold uppercase tracking-widest text-fp-anthracite/75">
+          <div className="text-xs font-mono font-semibold uppercase tracking-widest text-fp-sand">
             {t.contact.badge}
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-fp-anthracite tracking-tight text-balance">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-fp-cream tracking-tight text-balance">
             {t.contact.title}
           </h1>
-          <p className="text-base sm:text-lg text-fp-charcoal/85 max-w-2xl leading-relaxed">
+          <p className="text-base sm:text-lg text-fp-cream/90 max-w-2xl leading-relaxed">
             {t.contact.subtitle}
           </p>
         </div>
       </section>
 
       {/* Main Content: Form + Contact Info */}
-      <section className="py-20 lg:py-28 bg-fp-white">
+      <section className="py-20 lg:py-28 bg-fp-petrol">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
             
             {/* Left Column: Direct Contact Info & Professional Notice */}
             <div className="lg:col-span-5 space-y-8">
               
-              <div className="p-8 border border-fp-silver bg-fp-stone space-y-6">
-                <h2 className="text-xl font-bold text-fp-anthracite tracking-tight">
+              <div className="p-8 border border-fp-tan/40 bg-fp-petrol-deep space-y-6">
+                <h2 className="text-xl font-bold text-fp-cream tracking-tight">
                   {t.contact.directContactTitle}
                 </h2>
 
                 <div className="space-y-4 text-sm">
                   <div className="space-y-1">
-                    <span className="text-xs font-mono text-fp-anthracite/65 block uppercase">
+                    <span className="text-xs font-mono text-fp-sand block uppercase">
                       {t.contact.emailLabel}
                     </span>
                     <a
                       href="mailto:joan.perello@fidepath.com"
-                      className="font-medium text-fp-anthracite hover:text-fp-charcoal transition-colors flex items-center gap-2"
+                      className="font-medium text-fp-cream hover:text-fp-sand transition-colors flex items-center gap-2"
                     >
-                      <Mail className="w-4 h-4 text-fp-anthracite/75 shrink-0" />
+                      <Mail className="w-4 h-4 text-fp-tan shrink-0" />
                       <span>joan.perello@fidepath.com</span>
                     </a>
                   </div>
 
-                  <div className="space-y-1 pt-2 border-t border-fp-silver/80">
-                    <span className="text-xs font-mono text-fp-anthracite/65 block uppercase">
+                  <div className="space-y-1 pt-2 border-t border-fp-tan/30">
+                    <span className="text-xs font-mono text-fp-sand block uppercase">
                       {t.contact.phoneLabel}
                     </span>
                     <a
                       href="tel:+34615847893"
-                      className="font-medium text-fp-anthracite hover:text-fp-charcoal transition-colors flex items-center gap-2"
+                      className="font-medium text-fp-cream hover:text-fp-sand transition-colors flex items-center gap-2"
                     >
-                      <Phone className="w-4 h-4 text-fp-anthracite/75 shrink-0" />
+                      <Phone className="w-4 h-4 text-fp-tan shrink-0" />
                       <span>+34 615 847 893</span>
                     </a>
                   </div>
 
-                  <div className="space-y-1 pt-2 border-t border-fp-silver/80">
-                    <span className="text-xs font-mono text-fp-anthracite/65 block uppercase">
+                  <div className="space-y-1 pt-2 border-t border-fp-tan/30">
+                    <span className="text-xs font-mono text-fp-sand block uppercase">
                       {t.contact.locationLabel}
                     </span>
-                    <div className="font-medium text-fp-anthracite flex items-start gap-2">
-                      <MapPin className="w-4 h-4 text-fp-anthracite/75 shrink-0 mt-0.5" />
+                    <div className="font-medium text-fp-cream flex items-start gap-2">
+                      <MapPin className="w-4 h-4 text-fp-tan shrink-0 mt-0.5" />
                       <span>{t.contact.locationValue}</span>
                     </div>
                   </div>
 
-                  <div className="space-y-1 pt-2 border-t border-fp-silver/80">
-                    <span className="text-xs font-mono text-fp-anthracite/65 block uppercase">
+                  <div className="space-y-1 pt-2 border-t border-fp-tan/30">
+                    <span className="text-xs font-mono text-fp-sand block uppercase">
                       {t.contact.linkedinLabel}
                     </span>
                     <a
                       href={LINKEDIN_URL}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="font-medium text-fp-anthracite hover:text-fp-charcoal transition-colors inline-flex items-center gap-1.5 hover:underline"
+                      className="font-medium text-fp-sand hover:text-fp-cream transition-colors inline-flex items-center gap-1.5 hover:underline"
                     >
                       <span>{t.common.linkedinLabel}</span>
-                      <ArrowUpRight className="w-3.5 h-3.5 text-fp-anthracite/75 shrink-0" />
+                      <ArrowUpRight className="w-3.5 h-3.5 text-fp-tan shrink-0" />
                     </a>
                   </div>
                 </div>
 
-                <div className="pt-4 border-t border-fp-silver/80 text-xs text-fp-charcoal/85 leading-relaxed space-y-2">
-                  <div className="font-semibold text-fp-anthracite">
+                <div className="pt-4 border-t border-fp-tan/30 text-xs text-fp-cream/85 leading-relaxed space-y-2">
+                  <div className="font-semibold text-fp-sand">
                     {t.contact.confidentialityTitle}
                   </div>
                   <p>
@@ -253,11 +253,11 @@ export const ContactPage: React.FC<ContactPageProps> = ({
               </div>
 
               {/* Service scope reminders */}
-              <div className="p-6 border border-fp-stone bg-fp-mist space-y-3">
-                <h3 className="text-xs font-mono font-semibold uppercase tracking-wider text-fp-anthracite">
+              <div className="p-6 border border-fp-tan/35 bg-fp-petrol-deep/70 space-y-3">
+                <h3 className="text-xs font-mono font-semibold uppercase tracking-wider text-fp-sand">
                   {t.contact.procedureTitle}
                 </h3>
-                <ul className="text-xs text-fp-charcoal/85 space-y-2 leading-relaxed">
+                <ul className="text-xs text-fp-cream/85 space-y-2 leading-relaxed">
                   {t.contact.procedureSteps.map((step, idx) => (
                     <li key={idx}>{step}</li>
                   ))}
@@ -268,41 +268,41 @@ export const ContactPage: React.FC<ContactPageProps> = ({
 
             {/* Right Column: Contact Form */}
             <div className="lg:col-span-7">
-              <div className="border border-fp-silver bg-fp-white p-8 sm:p-10 shadow-sm">
+              <div className="border border-fp-tan/60 bg-fp-cream text-fp-slate p-8 sm:p-10 shadow-sm">
                 
                 {submissionSuccess ? (
                   /* Success State */
                   <div className="space-y-6 py-6 text-center sm:text-left">
-                    <div className="w-12 h-12 bg-fp-anthracite text-fp-white flex items-center justify-center rounded-none mx-auto sm:mx-0">
+                    <div className="w-12 h-12 bg-fp-petrol text-fp-sand flex items-center justify-center rounded-none mx-auto sm:mx-0">
                       <CheckCircle2 className="w-6 h-6" />
                     </div>
 
                     <div className="space-y-2">
-                      <h3 className="text-2xl font-bold text-fp-anthracite tracking-tight">
+                      <h3 className="text-2xl font-bold text-fp-petrol tracking-tight">
                         {t.contact.form.successTitle}
                       </h3>
-                      <p className="text-sm text-fp-charcoal/85 leading-relaxed max-w-lg">
+                      <p className="text-sm text-fp-slate leading-relaxed max-w-lg">
                         {t.contact.form.successMessage}
                       </p>
                     </div>
 
-                    <div className="p-4 bg-fp-mist border border-fp-stone text-xs font-mono space-y-1">
-                      <div className="text-fp-anthracite/75">
+                    <div className="p-4 bg-fp-white border border-fp-tan/45 text-xs font-mono space-y-1">
+                      <div className="text-fp-slate">
                         {t.contact.form.referenceCodeLabel}:
                       </div>
-                      <div className="text-base font-bold text-fp-anthracite">
+                      <div className="text-base font-bold text-fp-petrol">
                         {submissionSuccess.referenceCode}
                       </div>
                     </div>
 
-                    <p className="text-xs text-fp-anthracite/75 leading-relaxed">
+                    <p className="text-xs text-fp-slate leading-relaxed">
                       {t.contact.form.successFollowUp}
                     </p>
 
                     <div className="pt-4">
                       <button
                         onClick={handleReset}
-                        className="inline-flex items-center gap-2 px-5 py-2.5 text-xs font-semibold uppercase tracking-wider text-fp-anthracite bg-fp-mist hover:bg-fp-stone border border-fp-silver transition-colors"
+                        className="inline-flex items-center gap-2 px-5 py-2.5 text-xs font-semibold uppercase tracking-wider text-fp-petrol bg-fp-sand hover:bg-fp-white border border-fp-tan/60 transition-colors"
                       >
                         <span>{t.contact.form.submitAnother}</span>
                       </button>
@@ -333,8 +333,8 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                     {/* Name Fields Grid */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div className="space-y-1.5">
-                        <label className="text-xs font-semibold text-fp-anthracite uppercase tracking-wide">
-                          {t.contact.form.firstName} <span className="text-fp-anthracite/70">*</span>
+                        <label className="text-xs font-semibold text-fp-petrol uppercase tracking-wide">
+                          {t.contact.form.firstName} <span className="text-fp-petrol/70">*</span>
                         </label>
                         <input
                           type="text"
@@ -343,10 +343,10 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                           onChange={(e) =>
                             setFormData((prev) => ({ ...prev, firstName: e.target.value }))
                           }
-                          className={`w-full px-3.5 py-2.5 text-sm bg-fp-mist/40 focus:bg-fp-white border ${
+                          className={`w-full px-3.5 py-2.5 text-sm text-fp-petrol bg-fp-white border ${
                             fieldErrors.firstName
                               ? 'border-red-500 focus:ring-red-500'
-                              : 'border-fp-silver focus:border-fp-anthracite focus:ring-1 focus:ring-fp-anthracite'
+                              : 'border-fp-tan/50 focus:border-fp-petrol focus:ring-1 focus:ring-fp-petrol'
                           } outline-none transition-colors`}
                           placeholder={t.contact.form.firstNamePlaceholder}
                         />
@@ -356,8 +356,8 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                       </div>
 
                       <div className="space-y-1.5">
-                        <label className="text-xs font-semibold text-fp-anthracite uppercase tracking-wide">
-                          {t.contact.form.lastName} <span className="text-fp-anthracite/70">*</span>
+                        <label className="text-xs font-semibold text-fp-petrol uppercase tracking-wide">
+                          {t.contact.form.lastName} <span className="text-fp-petrol/70">*</span>
                         </label>
                         <input
                           type="text"
@@ -366,10 +366,10 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                           onChange={(e) =>
                             setFormData((prev) => ({ ...prev, lastName: e.target.value }))
                           }
-                          className={`w-full px-3.5 py-2.5 text-sm bg-fp-mist/40 focus:bg-fp-white border ${
+                          className={`w-full px-3.5 py-2.5 text-sm text-fp-petrol bg-fp-white border ${
                             fieldErrors.lastName
                               ? 'border-red-500 focus:ring-red-500'
-                              : 'border-fp-silver focus:border-fp-anthracite focus:ring-1 focus:ring-fp-anthracite'
+                              : 'border-fp-tan/50 focus:border-fp-petrol focus:ring-1 focus:ring-fp-petrol'
                           } outline-none transition-colors`}
                           placeholder={t.contact.form.lastNamePlaceholder}
                         />
@@ -382,8 +382,8 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                     {/* Company & Email Grid */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div className="space-y-1.5">
-                        <label className="text-xs font-semibold text-fp-anthracite uppercase tracking-wide">
-                          {t.contact.form.company} <span className="text-fp-anthracite/70">*</span>
+                        <label className="text-xs font-semibold text-fp-petrol uppercase tracking-wide">
+                          {t.contact.form.company} <span className="text-fp-petrol/70">*</span>
                         </label>
                         <input
                           type="text"
@@ -392,10 +392,10 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                           onChange={(e) =>
                             setFormData((prev) => ({ ...prev, company: e.target.value }))
                           }
-                          className={`w-full px-3.5 py-2.5 text-sm bg-fp-mist/40 focus:bg-fp-white border ${
+                          className={`w-full px-3.5 py-2.5 text-sm text-fp-petrol bg-fp-white border ${
                             fieldErrors.company
                               ? 'border-red-500 focus:ring-red-500'
-                              : 'border-fp-silver focus:border-fp-anthracite focus:ring-1 focus:ring-fp-anthracite'
+                              : 'border-fp-tan/50 focus:border-fp-petrol focus:ring-1 focus:ring-fp-petrol'
                           } outline-none transition-colors`}
                           placeholder={t.contact.form.companyPlaceholder}
                         />
@@ -405,8 +405,8 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                       </div>
 
                       <div className="space-y-1.5">
-                        <label className="text-xs font-semibold text-fp-anthracite uppercase tracking-wide">
-                          {t.contact.form.email} <span className="text-fp-anthracite/70">*</span>
+                        <label className="text-xs font-semibold text-fp-petrol uppercase tracking-wide">
+                          {t.contact.form.email} <span className="text-fp-petrol/70">*</span>
                         </label>
                         <input
                           type="email"
@@ -415,10 +415,10 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                           onChange={(e) =>
                             setFormData((prev) => ({ ...prev, email: e.target.value }))
                           }
-                          className={`w-full px-3.5 py-2.5 text-sm bg-fp-mist/40 focus:bg-fp-white border ${
+                          className={`w-full px-3.5 py-2.5 text-sm text-fp-petrol bg-fp-white border ${
                             fieldErrors.email
                               ? 'border-red-500 focus:ring-red-500'
-                              : 'border-fp-silver focus:border-fp-anthracite focus:ring-1 focus:ring-fp-anthracite'
+                              : 'border-fp-tan/50 focus:border-fp-petrol focus:ring-1 focus:ring-fp-petrol'
                           } outline-none transition-colors`}
                           placeholder={t.contact.form.emailPlaceholder}
                         />
@@ -431,9 +431,9 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                     {/* Phone & Assistance Type Grid */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div className="space-y-1.5">
-                        <label className="text-xs font-semibold text-fp-anthracite uppercase tracking-wide flex items-center justify-between">
+                        <label className="text-xs font-semibold text-fp-petrol uppercase tracking-wide flex items-center justify-between">
                           <span>{t.contact.form.phone}</span>
-                          <span className="text-[11px] font-normal text-fp-anthracite/65 font-mono">
+                          <span className="text-[11px] font-normal text-fp-slate font-mono">
                             {t.contact.form.phoneOptional}
                           </span>
                         </label>
@@ -443,14 +443,14 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                           onChange={(e) =>
                             setFormData((prev) => ({ ...prev, phone: e.target.value }))
                           }
-                          className="w-full px-3.5 py-2.5 text-sm bg-fp-mist/40 focus:bg-fp-white border border-fp-silver focus:border-fp-anthracite focus:ring-1 focus:ring-fp-anthracite outline-none transition-colors"
+                          className="w-full px-3.5 py-2.5 text-sm text-fp-petrol bg-fp-white border border-fp-tan/50 focus:border-fp-petrol focus:ring-1 focus:ring-fp-petrol outline-none transition-colors"
                           placeholder={t.contact.form.phonePlaceholder}
                         />
                       </div>
 
                       <div className="space-y-1.5">
-                        <label className="text-xs font-semibold text-fp-anthracite uppercase tracking-wide">
-                          {t.contact.form.assistanceType} <span className="text-fp-anthracite/70">*</span>
+                        <label className="text-xs font-semibold text-fp-petrol uppercase tracking-wide">
+                          {t.contact.form.assistanceType} <span className="text-fp-petrol/70">*</span>
                         </label>
                         <select
                           required
@@ -461,10 +461,10 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                               assistanceType: e.target.value as AssistanceType
                             }))
                           }
-                          className={`w-full px-3.5 py-2.5 text-sm bg-fp-mist/40 focus:bg-fp-white border ${
+                          className={`w-full px-3.5 py-2.5 text-sm text-fp-petrol bg-fp-white border ${
                             fieldErrors.assistanceType
                               ? 'border-red-500'
-                              : 'border-fp-silver focus:border-fp-anthracite focus:ring-1 focus:ring-fp-anthracite'
+                              : 'border-fp-tan/50 focus:border-fp-petrol focus:ring-1 focus:ring-fp-petrol'
                           } outline-none transition-colors`}
                         >
                           <option value="">{t.contact.form.assistanceSelectDefault}</option>
@@ -482,8 +482,8 @@ export const ContactPage: React.FC<ContactPageProps> = ({
 
                     {/* Subject */}
                     <div className="space-y-1.5">
-                      <label className="text-xs font-semibold text-fp-anthracite uppercase tracking-wide">
-                        {t.contact.form.subject} <span className="text-fp-anthracite/70">*</span>
+                      <label className="text-xs font-semibold text-fp-petrol uppercase tracking-wide">
+                        {t.contact.form.subject} <span className="text-fp-petrol/70">*</span>
                       </label>
                       <input
                         type="text"
@@ -492,10 +492,10 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                         onChange={(e) =>
                           setFormData((prev) => ({ ...prev, subject: e.target.value }))
                         }
-                        className={`w-full px-3.5 py-2.5 text-sm bg-fp-mist/40 focus:bg-fp-white border ${
+                        className={`w-full px-3.5 py-2.5 text-sm text-fp-petrol bg-fp-white border ${
                           fieldErrors.subject
                             ? 'border-red-500'
-                            : 'border-fp-silver focus:border-fp-anthracite focus:ring-1 focus:ring-fp-anthracite'
+                            : 'border-fp-tan/50 focus:border-fp-petrol focus:ring-1 focus:ring-fp-petrol'
                         } outline-none transition-colors`}
                         placeholder={t.contact.form.subjectPlaceholder}
                       />
@@ -506,8 +506,8 @@ export const ContactPage: React.FC<ContactPageProps> = ({
 
                     {/* Project Description */}
                     <div className="space-y-1.5">
-                      <label className="text-xs font-semibold text-fp-anthracite uppercase tracking-wide">
-                        {t.contact.form.projectDescription} <span className="text-fp-anthracite/70">*</span>
+                      <label className="text-xs font-semibold text-fp-petrol uppercase tracking-wide">
+                        {t.contact.form.projectDescription} <span className="text-fp-petrol/70">*</span>
                       </label>
                       <textarea
                         rows={5}
@@ -519,10 +519,10 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                             projectDescription: e.target.value
                           }))
                         }
-                        className={`w-full px-3.5 py-2.5 text-sm bg-fp-mist/40 focus:bg-fp-white border ${
+                        className={`w-full px-3.5 py-2.5 text-sm text-fp-petrol bg-fp-white border ${
                           fieldErrors.projectDescription
                             ? 'border-red-500'
-                            : 'border-fp-silver focus:border-fp-anthracite focus:ring-1 focus:ring-fp-anthracite'
+                            : 'border-fp-tan/50 focus:border-fp-petrol focus:ring-1 focus:ring-fp-petrol'
                         } outline-none transition-colors leading-relaxed`}
                         placeholder={t.contact.form.projectDescriptionPlaceholder}
                       />
@@ -535,7 +535,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
 
                     {/* Privacy Acceptance Checkbox */}
                     <div className="space-y-1.5 pt-2">
-                      <label className="flex items-start gap-3 cursor-pointer text-xs text-fp-charcoal/85 leading-normal">
+                      <label className="flex items-start gap-3 cursor-pointer text-xs text-fp-slate leading-normal">
                         <input
                           type="checkbox"
                           checked={formData.privacyConsent}
@@ -545,7 +545,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                               privacyConsent: e.target.checked
                             }))
                           }
-                          className="mt-0.5 rounded-none border-fp-silver text-fp-anthracite focus:ring-fp-anthracite"
+                          className="mt-0.5 rounded-none border-fp-tan/60 text-fp-petrol focus:ring-fp-petrol accent-fp-petrol"
                         />
                         <span>
                           {t.contact.form.privacyText}{' '}
@@ -553,7 +553,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                             href={LEGAL_URL}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="underline text-fp-anthracite font-medium hover:text-fp-charcoal"
+                            className="underline decoration-fp-tan text-fp-petrol font-medium hover:text-fp-petrol-deep"
                           >
                             {t.contact.form.privacyLink}
                           </a>
@@ -572,7 +572,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                       <button
                         type="submit"
                         disabled={isSubmitting}
-                        className="w-full flex items-center justify-center gap-2 px-6 py-4 text-xs font-semibold tracking-wider uppercase text-fp-white bg-fp-anthracite hover:bg-fp-charcoal disabled:bg-fp-slate transition-colors shadow-sm"
+                        className="w-full flex items-center justify-center gap-2 px-6 py-4 text-xs font-semibold tracking-wider uppercase text-fp-petrol bg-fp-sand hover:bg-fp-sand-light border border-fp-tan disabled:opacity-60 transition-colors shadow-sm"
                       >
                         {isSubmitting ? (
                           <>
@@ -588,7 +588,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                       </button>
                     </div>
 
-                    <div className="text-[11px] font-mono text-fp-anthracite/65 text-center pt-2">
+                    <div className="text-[11px] font-mono text-fp-slate text-center pt-2">
                       {t.contact.form.secureNotice}
                     </div>
 

@@ -23,36 +23,36 @@ export const LegalPage: React.FC<LegalPageProps> = ({
   }, [initialTab]);
 
   return (
-    <div className="w-full bg-fp-white text-fp-charcoal py-16 lg:py-24">
+    <div className="w-full bg-fp-cream text-fp-slate py-16 lg:py-24">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
         
         {/* Header */}
-        <div className="space-y-4 border-b border-fp-stone pb-8">
-          <div className="text-xs font-mono font-semibold uppercase tracking-widest text-fp-anthracite/75">
+        <div className="space-y-4 border-b border-fp-tan/40 pb-8">
+          <div className="text-xs font-mono font-semibold uppercase tracking-widest text-fp-slate">
             {t.legal.badge}
           </div>
-          <h1 className="text-3xl sm:text-4xl font-bold text-fp-anthracite tracking-tight">
+          <h1 className="text-3xl sm:text-4xl font-bold text-fp-petrol tracking-tight">
             {activeTab === 'legal'
               ? t.footer.legalNotice
               : activeTab === 'privacy'
               ? t.footer.privacyPolicy
               : t.footer.cookiePolicy}
           </h1>
-          <p className="text-xs font-mono text-fp-anthracite/65">
+          <p className="text-xs font-mono text-fp-slate">
             FidePath Expert Services · {t.common.location}
           </p>
         </div>
 
         {/* Tab Controls */}
-        <div className="flex flex-wrap items-center gap-2 p-1 bg-fp-stone border border-fp-silver">
+        <div className="flex flex-wrap items-center gap-2 p-1 bg-fp-sand-light border border-fp-tan/45">
           <a
             href={LEGAL_URL}
             target="_blank"
             rel="noopener noreferrer"
             className={`px-4 py-2 text-xs font-semibold uppercase tracking-wider transition-colors ${
               activeTab === 'legal'
-                ? 'bg-fp-white text-fp-anthracite shadow-sm'
-                : 'text-fp-charcoal/80 hover:text-fp-anthracite'
+                ? 'bg-fp-white text-fp-petrol shadow-sm'
+                : 'text-fp-slate hover:text-fp-petrol'
             }`}
           >
             {t.footer.legalNotice}
@@ -63,8 +63,8 @@ export const LegalPage: React.FC<LegalPageProps> = ({
             rel="noopener noreferrer"
             className={`px-4 py-2 text-xs font-semibold uppercase tracking-wider transition-colors ${
               activeTab === 'privacy'
-                ? 'bg-fp-white text-fp-anthracite shadow-sm'
-                : 'text-fp-charcoal/80 hover:text-fp-anthracite'
+                ? 'bg-fp-white text-fp-petrol shadow-sm'
+                : 'text-fp-slate hover:text-fp-petrol'
             }`}
           >
             {t.footer.privacyPolicy}
@@ -75,8 +75,8 @@ export const LegalPage: React.FC<LegalPageProps> = ({
             rel="noopener noreferrer"
             className={`px-4 py-2 text-xs font-semibold uppercase tracking-wider transition-colors ${
               activeTab === 'cookies'
-                ? 'bg-fp-white text-fp-anthracite shadow-sm'
-                : 'text-fp-charcoal/80 hover:text-fp-anthracite'
+                ? 'bg-fp-white text-fp-petrol shadow-sm'
+                : 'text-fp-slate hover:text-fp-petrol'
             }`}
           >
             {t.footer.cookiePolicy}
@@ -84,26 +84,26 @@ export const LegalPage: React.FC<LegalPageProps> = ({
         </div>
 
         {/* Temporary Page Under Construction Placeholder */}
-        <div className="p-8 sm:p-10 bg-fp-mist border border-fp-stone space-y-3">
-          <h2 className="text-lg font-bold text-fp-anthracite tracking-tight">
+        <div className="p-8 sm:p-10 bg-fp-white border border-fp-tan/45 space-y-3">
+          <h2 className="text-lg font-bold text-fp-petrol tracking-tight">
             {t.legal.underConstructionTitle}
           </h2>
-          <p className="text-sm text-fp-charcoal/85 leading-relaxed">
+          <p className="text-sm text-fp-slate leading-relaxed">
             {t.legal.underConstructionDesc}
           </p>
         </div>
 
-        <div className="pt-8 border-t border-fp-stone flex justify-between items-center text-xs">
+        <div className="pt-8 border-t border-fp-tan/40 flex justify-between items-center text-xs">
           <button
             onClick={() => {
               setCurrentPage('home');
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
-            className="text-fp-anthracite font-semibold hover:underline uppercase tracking-wider"
+            className="text-fp-petrol font-semibold hover:underline decoration-fp-tan uppercase tracking-wider"
           >
             {t.legal.returnHome}
           </button>
-          <span className="text-fp-anthracite/65 font-mono">
+          <span className="text-fp-slate font-mono">
             {t.legal.lastUpdated}
           </span>
         </div>

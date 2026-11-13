@@ -207,7 +207,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-fp-white text-fp-charcoal selection:bg-fp-anthracite selection:text-fp-white font-sans">
+    <div className="min-h-screen flex flex-col bg-fp-cream text-fp-slate selection:bg-fp-petrol selection:text-fp-cream font-sans">
       
       {/* 3-Zone Top Navigation Header */}
       <Header
