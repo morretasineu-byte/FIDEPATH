@@ -39,19 +39,20 @@ export const Header: React.FC<HeaderProps> = ({
 
   return (
     <header className="sticky top-0 z-50 bg-fp-white/95 backdrop-blur-md border-b border-fp-stone transition-colors">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between gap-8 h-20">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between gap-2 sm:gap-4 lg:gap-8 h-16 sm:h-20">
           
           {/* Zone 1: Brand Wordmark (Brand Name kept unmodified) */}
           <button
+            type="button"
             onClick={() => handleNavClick('home')}
             className="flex items-center text-left focus:outline-none group whitespace-nowrap shrink-0"
             aria-label="FidePath Expert Services"
           >
-            <span className="text-xl sm:text-2xl font-bold tracking-tight text-fp-anthracite font-sans group-hover:text-fp-charcoal transition-colors">
+            <span className="text-base min-[375px]:text-lg sm:text-2xl font-bold tracking-tight text-fp-anthracite font-sans group-hover:text-fp-charcoal transition-colors">
               FIDEPATH
             </span>
-            <span className="ml-2 text-xs font-semibold tracking-widest text-fp-anthracite/70 uppercase border-l border-fp-silver pl-2">
+            <span className="ml-1.5 pl-1.5 sm:ml-2 sm:pl-2 text-[10px] min-[375px]:text-[11px] sm:text-xs font-semibold tracking-wider sm:tracking-widest text-fp-anthracite/70 uppercase border-l border-fp-silver">
               EXPERT SERVICES
             </span>
           </button>
@@ -78,7 +79,7 @@ export const Header: React.FC<HeaderProps> = ({
           </nav>
 
           {/* Zone 3: Language Selector & Primary CTA */}
-          <div className="hidden sm:flex items-center gap-5 shrink-0">
+          <div className="hidden sm:flex items-center gap-4 lg:gap-5 shrink-0">
             {/* Language Switcher */}
             <div className="flex items-center gap-1.5 text-xs font-mono font-medium text-fp-anthracite/70">
               <button
@@ -129,14 +130,15 @@ export const Header: React.FC<HeaderProps> = ({
           </div>
 
           {/* Mobile Hamburger & Language Selector */}
-          <div className="flex lg:hidden items-center gap-3">
-            <div className="flex items-center text-xs font-mono font-medium text-fp-anthracite/70">
+          <div className="flex lg:hidden items-center gap-1.5 sm:gap-3 shrink-0">
+            <div className="flex sm:hidden items-center text-[11px] font-mono font-medium text-fp-anthracite/75 shrink-0">
               {(['en', 'es', 'ca'] as Language[]).map((lang, idx) => (
                 <React.Fragment key={lang}>
                   {idx > 0 && <span className="text-fp-silver mx-0.5">/</span>}
                   <button
+                    type="button"
                     onClick={() => handleLangChange(lang)}
-                    className={`px-1 py-0.5 rounded ${
+                    className={`px-0.5 py-0.5 rounded ${
                       currentLang === lang ? 'text-fp-anthracite font-bold bg-fp-stone' : ''
                     }`}
                   >
@@ -147,11 +149,17 @@ export const Header: React.FC<HeaderProps> = ({
             </div>
 
             <button
+              type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 text-fp-anthracite hover:text-fp-charcoal focus:outline-none"
+              className="inline-flex items-center justify-center w-10 h-10 -mr-1.5 text-fp-anthracite hover:text-fp-charcoal hover:bg-fp-mist rounded transition-colors focus:outline-none focus:ring-2 focus:ring-fp-anthracite shrink-0"
               aria-label={mobileMenuOpen ? t.nav.closeMenu : t.nav.openMenu}
+              aria-expanded={mobileMenuOpen}
             >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {mobileMenuOpen ? (
+                <X className="w-6 h-6 shrink-0" strokeWidth={2} />
+              ) : (
+                <Menu className="w-6 h-6 shrink-0" strokeWidth={2} />
+              )}
             </button>
           </div>
         </div>
@@ -159,7 +167,7 @@ export const Header: React.FC<HeaderProps> = ({
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden border-t border-fp-stone bg-fp-mist px-4 pt-4 pb-6 space-y-3 shadow-lg">
+        <div className="lg:hidden border-t border-fp-stone bg-fp-mist px-4 pt-4 pb-6 space-y-3 shadow-lg max-h-[calc(100vh-4rem)] overflow-y-auto">
           <nav className="flex flex-col space-y-1">
             {navItems.map((item) => {
               const isActive = currentPage === item.id;
