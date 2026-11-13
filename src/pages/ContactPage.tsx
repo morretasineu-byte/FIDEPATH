@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Language, PageId, AssistanceType, ContactFormData } from '../types';
 import { translations } from '../translations';
+import { LINKEDIN_URL } from '../config';
 import { Mail, Phone, MapPin, CheckCircle2, AlertCircle, ArrowUpRight, Loader2 } from 'lucide-react';
 
 interface ContactPageProps {
@@ -223,6 +224,21 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                       <MapPin className="w-4 h-4 text-fp-anthracite/75 shrink-0 mt-0.5" />
                       <span>{t.contact.locationValue}</span>
                     </div>
+                  </div>
+
+                  <div className="space-y-1 pt-2 border-t border-fp-silver/80">
+                    <span className="text-xs font-mono text-fp-anthracite/65 block uppercase">
+                      {t.contact.linkedinLabel}
+                    </span>
+                    <a
+                      href={LINKEDIN_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-medium text-fp-anthracite hover:text-fp-charcoal transition-colors inline-flex items-center gap-1.5 hover:underline"
+                    >
+                      <span>{t.common.linkedinLabel}</span>
+                      <ArrowUpRight className="w-3.5 h-3.5 text-fp-anthracite/75 shrink-0" />
+                    </a>
                   </div>
                 </div>
 

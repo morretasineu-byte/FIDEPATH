@@ -1,7 +1,9 @@
 import React from 'react';
 import { Language, PageId } from '../types';
 import { translations } from '../translations';
+import { LINKEDIN_URL } from '../config';
 import { Mail, Phone, MapPin, ArrowUpRight } from 'lucide-react';
+import { getLegalRoute } from '../utils/routes';
 
 interface FooterProps {
   setCurrentPage: (page: PageId) => void;
@@ -140,6 +142,16 @@ export const Footer: React.FC<FooterProps> = ({
                 <MapPin className="w-4 h-4 text-fp-slate shrink-0 mt-0.5" />
                 <span>{t.common.location}</span>
               </div>
+
+              <a
+                href={LINKEDIN_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-fp-silver hover:text-fp-white transition-colors pt-1 group"
+              >
+                <ArrowUpRight className="w-4 h-4 text-fp-slate group-hover:text-fp-stone shrink-0" />
+                <span>{t.common.linkedinLabel}</span>
+              </a>
             </div>
 
             <div className="pt-4">
@@ -162,27 +174,39 @@ export const Footer: React.FC<FooterProps> = ({
           </div>
 
           {/* Legal Links */}
-          <div className="flex items-center gap-4 text-xs">
-            <button
-              onClick={() => handleNav('privacy')}
-              className="hover:text-fp-stone transition-colors"
-            >
-              {t.footer.privacyPolicy}
-            </button>
-            <span className="text-fp-anthracite">·</span>
-            <button
-              onClick={() => handleNav('cookies')}
-              className="hover:text-fp-stone transition-colors"
-            >
-              {t.footer.cookiePolicy}
-            </button>
-            <span className="text-fp-anthracite">·</span>
-            <button
-              onClick={() => handleNav('legal')}
+          <div className="flex flex-wrap items-center justify-center gap-4 text-xs">
+            <a
+              href={getLegalRoute(currentLang, 'legal')}
+              onClick={(e) => {
+                e.preventDefault();
+                handleNav('legal');
+              }}
               className="hover:text-fp-stone transition-colors"
             >
               {t.footer.legalNotice}
-            </button>
+            </a>
+            <span className="text-fp-anthracite">·</span>
+            <a
+              href={getLegalRoute(currentLang, 'privacy')}
+              onClick={(e) => {
+                e.preventDefault();
+                handleNav('privacy');
+              }}
+              className="hover:text-fp-stone transition-colors"
+            >
+              {t.footer.privacyPolicy}
+            </a>
+            <span className="text-fp-anthracite">·</span>
+            <a
+              href={getLegalRoute(currentLang, 'cookies')}
+              onClick={(e) => {
+                e.preventDefault();
+                handleNav('cookies');
+              }}
+              className="hover:text-fp-stone transition-colors"
+            >
+              {t.footer.cookiePolicy}
+            </a>
           </div>
 
           {/* Language Switcher in Footer */}

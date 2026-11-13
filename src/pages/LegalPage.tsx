@@ -1,20 +1,30 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Language, PageId } from '../types';
 import { translations } from '../translations';
+import { getLegalRoute, LegalPageId } from '../utils/routes';
 
 interface LegalPageProps {
-  initialTab?: 'privacy' | 'cookies' | 'legal';
+  initialTab?: LegalPageId;
   currentLang: Language;
   setCurrentPage: (page: PageId) => void;
 }
 
 export const LegalPage: React.FC<LegalPageProps> = ({
-  initialTab = 'privacy',
+  initialTab = 'legal',
   currentLang,
   setCurrentPage
 }) => {
-  const [activeTab, setActiveTab] = useState<'privacy' | 'cookies' | 'legal'>(initialTab);
+  const [activeTab, setActiveTab] = useState<LegalPageId>(initialTab);
   const t = translations[currentLang];
+
+  useEffect(() => {
+    setActiveTab(initialTab);
+  }, [initialTab]);
+
+  const handleTabChange = (tab: LegalPageId) => {
+    setActiveTab(tab);
+    setCurrentPage(tab);
+  };
 
   return (
     <div className="w-full bg-fp-white text-fp-charcoal py-16 lg:py-24">
@@ -26,11 +36,11 @@ export const LegalPage: React.FC<LegalPageProps> = ({
             {t.legal.badge}
           </div>
           <h1 className="text-3xl sm:text-4xl font-bold text-fp-anthracite tracking-tight">
-            {activeTab === 'privacy'
+            {activeTab === 'legal'
+              ? t.footer.legalNotice
+              : activeTab === 'privacy'
               ? t.footer.privacyPolicy
-              : activeTab === 'cookies'
-              ? t.footer.cookiePolicy
-              : t.footer.legalNotice}
+              : t.footer.cookiePolicy}
           </h1>
           <p className="text-xs font-mono text-fp-anthracite/65">
             FidePath Expert Services · {t.common.location}
@@ -39,28 +49,12 @@ export const LegalPage: React.FC<LegalPageProps> = ({
 
         {/* Tab Controls */}
         <div className="flex flex-wrap items-center gap-2 p-1 bg-fp-stone border border-fp-silver">
-          <button
-            onClick={() => setActiveTab('privacy')}
-            className={`px-4 py-2 text-xs font-semibold uppercase tracking-wider transition-colors ${
-              activeTab === 'privacy'
-                ? 'bg-fp-white text-fp-anthracite shadow-sm'
-                : 'text-fp-charcoal/80 hover:text-fp-anthracite'
-            }`}
-          >
-            {t.footer.privacyPolicy}
-          </button>
-          <button
-            onClick={() => setActiveTab('cookies')}
-            className={`px-4 py-2 text-xs font-semibold uppercase tracking-wider transition-colors ${
-              activeTab === 'cookies'
-                ? 'bg-fp-white text-fp-anthracite shadow-sm'
-                : 'text-fp-charcoal/80 hover:text-fp-anthracite'
-            }`}
-          >
-            {t.footer.cookiePolicy}
-          </button>
-          <button
-            onClick={() => setActiveTab('legal')}
+          <a
+            href={getLegalRoute(currentLang, 'legal')}
+            onClick={(e) => {
+              e.preventDefault();
+              handleTabChange('legal');
+            }}
             className={`px-4 py-2 text-xs font-semibold uppercase tracking-wider transition-colors ${
               activeTab === 'legal'
                 ? 'bg-fp-white text-fp-anthracite shadow-sm'
@@ -68,71 +62,45 @@ export const LegalPage: React.FC<LegalPageProps> = ({
             }`}
           >
             {t.footer.legalNotice}
-          </button>
+          </a>
+          <a
+            href={getLegalRoute(currentLang, 'privacy')}
+            onClick={(e) => {
+              e.preventDefault();
+              handleTabChange('privacy');
+            }}
+            className={`px-4 py-2 text-xs font-semibold uppercase tracking-wider transition-colors ${
+              activeTab === 'privacy'
+                ? 'bg-fp-white text-fp-anthracite shadow-sm'
+                : 'text-fp-charcoal/80 hover:text-fp-anthracite'
+            }`}
+          >
+            {t.footer.privacyPolicy}
+          </a>
+          <a
+            href={getLegalRoute(currentLang, 'cookies')}
+            onClick={(e) => {
+              e.preventDefault();
+              handleTabChange('cookies');
+            }}
+            className={`px-4 py-2 text-xs font-semibold uppercase tracking-wider transition-colors ${
+              activeTab === 'cookies'
+                ? 'bg-fp-white text-fp-anthracite shadow-sm'
+                : 'text-fp-charcoal/80 hover:text-fp-anthracite'
+            }`}
+          >
+            {t.footer.cookiePolicy}
+          </a>
         </div>
 
-        {/* Legal Text Content */}
-        <div className="max-w-none text-sm text-fp-charcoal/90 leading-relaxed space-y-6">
-          
-          {activeTab === 'privacy' && (
-            <div className="space-y-6">
-              <div className="p-4 bg-fp-mist border border-fp-stone text-xs text-fp-charcoal/85">
-                {t.legal.privacy.disclaimer}
-              </div>
-
-              {t.legal.privacy.sections.map((sec, idx) => (
-                <div key={idx} className="space-y-3">
-                  <h2 className="text-lg font-bold text-fp-anthracite tracking-tight">
-                    {sec.title}
-                  </h2>
-                  {sec.content.map((p, pIdx) => (
-                    <p key={pIdx} className="leading-relaxed">
-                      {p}
-                    </p>
-                  ))}
-                </div>
-              ))}
-            </div>
-          )}
-
-          {activeTab === 'cookies' && (
-            <div className="space-y-6">
-              {t.legal.cookies.sections.map((sec, idx) => (
-                <div key={idx} className="space-y-3">
-                  <h2 className="text-lg font-bold text-fp-anthracite tracking-tight">
-                    {sec.title}
-                  </h2>
-                  {sec.content.map((p, pIdx) => (
-                    <p key={pIdx} className="leading-relaxed">
-                      {p}
-                    </p>
-                  ))}
-                </div>
-              ))}
-            </div>
-          )}
-
-          {activeTab === 'legal' && (
-            <div className="space-y-6">
-              <div className="p-4 bg-fp-mist border border-fp-stone text-xs text-fp-charcoal/85">
-                {t.legal.legalNotice.disclaimer}
-              </div>
-
-              {t.legal.legalNotice.sections.map((sec, idx) => (
-                <div key={idx} className="space-y-3">
-                  <h2 className="text-lg font-bold text-fp-anthracite tracking-tight">
-                    {sec.title}
-                  </h2>
-                  {sec.content.map((p, pIdx) => (
-                    <p key={pIdx} className="leading-relaxed">
-                      {p}
-                    </p>
-                  ))}
-                </div>
-              ))}
-            </div>
-          )}
-
+        {/* Temporary Page Under Construction Placeholder */}
+        <div className="p-8 sm:p-10 bg-fp-mist border border-fp-stone space-y-3">
+          <h2 className="text-lg font-bold text-fp-anthracite tracking-tight">
+            {t.legal.underConstructionTitle}
+          </h2>
+          <p className="text-sm text-fp-charcoal/85 leading-relaxed">
+            {t.legal.underConstructionDesc}
+          </p>
         </div>
 
         <div className="pt-8 border-t border-fp-stone flex justify-between items-center text-xs">

@@ -14,11 +14,16 @@ import { ServicesPage } from './pages/ServicesPage';
 import { ApproachPage } from './pages/ApproachPage';
 import { ContactPage } from './pages/ContactPage';
 import { LegalPage } from './pages/LegalPage';
+import { getLegalRoute, isLegalPage, matchLegalPathname } from './utils/routes';
 
 export default function App() {
-  // Initialize language from URL query or localStorage or default to 'en'
+  // Initialize language from legal pathname, URL query, localStorage, or default to 'en'
   const [currentLang, setCurrentLangState] = useState<Language>(() => {
     if (typeof window !== 'undefined') {
+      const legalMatch = matchLegalPathname(window.location.pathname);
+      if (legalMatch) {
+        return legalMatch.lang;
+      }
       const params = new URLSearchParams(window.location.search);
       const urlLang = params.get('lang');
       if (urlLang === 'es' || urlLang === 'ca' || urlLang === 'en') {
@@ -32,9 +37,13 @@ export default function App() {
     return 'en';
   });
 
-  // Initialize page from URL hash or query param or default to 'home'
+  // Initialize page from legal pathname, URL hash, query param, or default to 'home'
   const [currentPage, setCurrentPageState] = useState<PageId>(() => {
     if (typeof window !== 'undefined') {
+      const legalMatch = matchLegalPathname(window.location.pathname);
+      if (legalMatch) {
+        return legalMatch.page;
+      }
       const hash = window.location.hash.replace('#', '').toLowerCase();
       const validPages: PageId[] = [
         'home',
@@ -78,9 +87,13 @@ export default function App() {
     setCurrentLangState(lang);
     if (typeof window !== 'undefined') {
       localStorage.setItem('fidepath_lang', lang);
-      const url = new URL(window.location.href);
-      url.searchParams.set('lang', lang);
-      window.history.replaceState({}, '', url.toString());
+      if (isLegalPage(currentPage)) {
+        window.history.replaceState({}, '', getLegalRoute(lang, currentPage));
+      } else {
+        const url = new URL(window.location.href);
+        url.searchParams.set('lang', lang);
+        window.history.replaceState({}, '', url.toString());
+      }
       document.documentElement.lang = lang;
     }
   };
@@ -88,16 +101,28 @@ export default function App() {
   const setCurrentPage = (page: PageId) => {
     setCurrentPageState(page);
     if (typeof window !== 'undefined') {
-      window.location.hash = page;
-      const url = new URL(window.location.href);
-      url.searchParams.set('page', page);
-      window.history.pushState({}, '', url.toString());
+      if (isLegalPage(page)) {
+        window.history.pushState({}, '', getLegalRoute(currentLang, page));
+      } else {
+        const url = new URL(window.location.origin + '/');
+        url.searchParams.set('lang', currentLang);
+        url.searchParams.set('page', page);
+        url.hash = page;
+        window.history.pushState({}, '', url.toString());
+      }
     }
   };
 
   // Listen to popstate (back/forward browser buttons)
   useEffect(() => {
     const handlePopState = () => {
+      const legalMatch = matchLegalPathname(window.location.pathname);
+      if (legalMatch) {
+        setCurrentLangState(legalMatch.lang);
+        setCurrentPageState(legalMatch.page);
+        return;
+      }
+
       const hash = window.location.hash.replace('#', '').toLowerCase();
       const validPages: PageId[] = [
         'home',
@@ -111,6 +136,14 @@ export default function App() {
       ];
       if (validPages.includes(hash as PageId)) {
         setCurrentPageState(hash as PageId);
+      } else {
+        const params = new URLSearchParams(window.location.search);
+        const pageParam = params.get('page');
+        if (pageParam && validPages.includes(pageParam as PageId)) {
+          setCurrentPageState(pageParam as PageId);
+        } else {
+          setCurrentPageState('home');
+        }
       }
       const params = new URLSearchParams(window.location.search);
       const langParam = params.get('lang');
@@ -155,6 +188,18 @@ export default function App() {
 
     const twitterDesc = document.querySelector('meta[name="twitter:description"]');
     if (twitterDesc) twitterDesc.setAttribute('content', description);
+
+    // Sync JSON-LD structured data with active language
+    const ldJsonScript = document.querySelector('script[type="application/ld+json"]');
+    if (ldJsonScript && ldJsonScript.textContent) {
+      try {
+        const parsed = JSON.parse(ldJsonScript.textContent);
+        parsed.description = t.meta.pageDescriptions.home;
+        ldJsonScript.textContent = JSON.stringify(parsed);
+      } catch {
+        // Ignore parse errors
+      }
+    }
   }, [currentLang, currentPage]);
 
   const handleSelectService = (title: string) => {
